@@ -41,4 +41,4 @@ function getRandomCategory()
 //     $readin = create_board();
 //     setcookie("CREATE_BOARD");
 // }
-getRandomCategories();
+//getRandomCategories();

@@ -10,6 +10,78 @@ div {
     position: absolute;
 }
 
+@keyframes right_fade {
+    0% {
+        display: none;
+        transform: translate(20vw, 0);
+        opacity: 0;
+    }
+    
+    1% {
+        display: initial;
+    }
+    
+    100% {
+        display: initial;
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes left_fade {
+    0% {
+        display: none;
+        transform: translate(-20vw, 0);
+        opacity: 0;
+    }
+    
+    1% {
+        display: initial;
+    }
+    
+    100% {
+        display: initial;
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes bottom_fade {
+    0% {
+        display: none;
+        transform: translate(0, 10vh);
+        opacity: 0;
+    }
+    
+    1% {
+        display: initial;
+    }
+    
+    100% {
+        display: initial;
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes top_fade {
+    0% {
+        display: none;
+        transform: translate(0, -10vh);
+        opacity: 0;
+    }
+    
+    1% {
+        display: initial;
+    }
+    
+    100% {
+        display: initial;
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
 .button_link {
     font-size: 2vw;
 }
@@ -79,21 +151,37 @@ td {
     font-size: 0.75vw;
     width: 50vw;
     left: 25vw;
+    animation-name: left_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 .score_tally {
     font-size: 1.45vw;
     left: 1vw;
+    animation-name: right_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 .question_choice {
     width: 25vw;
     font-size: 1.45vw;
     top: 65vh;
+    animation-name: top_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 .question_select {
     top: 90vh;
+    animation-name: top_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #p1_score_tally {
@@ -110,12 +198,20 @@ td {
     font-size: 2.25vw;
     left: 30vw;
     top: 15vh;
+    animation-name: left_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #start_board_link {
     width: 20vw;
     left: 40vw;
     top: 60vh;
+    animation-name: right_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #turn_heading, #over_heading {
@@ -124,10 +220,18 @@ td {
 
 #cat_heading {
     top: 5vh;
+    animation-name: right_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #p1_heading {
-    top: 6vh
+    top: 6vh;
+    animation-name: right_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #p2_heading {
@@ -138,6 +242,10 @@ td {
     width: 60vw;
     left: 20vw;
     top: 10vh;
+    animation-name: bottom_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #answer, #winner {
@@ -146,6 +254,10 @@ td {
     width: 50vw;
     left: 25vw;
     top: 30vh;
+    animation-name: top_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #question_choice_1 {
@@ -178,6 +290,10 @@ td {
     width: 50vw;
     left: 25vw;
     top: 20vh;
+    animation-name: top_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #result_question, #old_warning {
@@ -185,6 +301,10 @@ td {
     width: 90vw;
     left: 5vw;
     top: 35vh;
+    animation-name: top_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #winnings {
@@ -193,10 +313,18 @@ td {
     width: 50vw;
     left: 25vw;
     top: 50vh;
+    animation-name: bottom_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 #return_button {
     width: 40vw;
     left: 30vw;
     top: 70vh;
+    animation-name: bottom_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 }
