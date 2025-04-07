@@ -1,0 +1,44 @@
+body {
+    background-size: 100vw 100vh;
+    background-color: blue;
+    color: yellow;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+div {
+    /*position: absolute;*/
+}
+
+.button_link {
+    font-size: 1.5vw;
+}
+
+.button_link a {
+    text-decoration-line: none;
+    color: black;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1.3vh;
+    padding-bottom: 1.3vh;
+    background-color: #d3d3d3;
+    border-style: solid;
+    border-radius: 0.5vw;
+}
+
+.button_link a:hover {
+    color: white;
+    border-color: black;
+}
+
+td a {
+    text-decoration-line: none;
+    color: yellow;
+}
+
+td a:hover {
+    color: white;
+}
+
+td a.visited {
+    color: purple;
+}
