@@ -118,12 +118,20 @@ td {
     top: 60vh;
 }
 
-#turn_heading {
+#turn_heading, #over_heading {
     top: -0.25vh;
 }
 
 #cat_heading {
     top: 5vh;
+}
+
+#p1_heading {
+    top: 6vh
+}
+
+#p2_heading {
+    top: 12.5vh;
 }
 
 #board_table {
@@ -132,7 +140,7 @@ td {
     top: 10vh;
 }
 
-#answer {
+#answer, #winner {
     font-size: 3vw;
     font-weight: bold;
     width: 50vw;
@@ -172,7 +180,7 @@ td {
     top: 20vh;
 }
 
-#result_question {
+#result_question, #old_warning {
     font-size: 2vw;
     width: 90vw;
     left: 5vw;
