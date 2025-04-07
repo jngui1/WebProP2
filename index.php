@@ -18,9 +18,9 @@
     </head>
 
     <body>
-        <div><h1>Welcome to Jeopardy!</h1></div>
+        <div id="welcome"><h1>Welcome to Jeopardy!</h1></div>
         
-        <div class="button_link"><a href="board.php">Begin Game</a></div>
+        <div id="start_board_link" class="button_link"><a href="board.php">Begin Game</a></div>
     
     </body>
     

@@ -3,14 +3,15 @@ body {
     background-color: blue;
     color: yellow;
     font-family: Verdana, Tahoma, sans-serif;
+    text-align: center;
 }
 
 div {
-    /*position: absolute;*/
+    position: absolute;
 }
 
 .button_link {
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 
 .button_link a {
@@ -30,6 +31,27 @@ div {
     border-color: black;
 }
 
+table, td, th {
+    border-style: solid;
+    border-color: white;
+    border-width: 0.1vw;
+}
+
+td, th {
+    width: 12vw;
+    height: 12vh;
+}
+
+th {
+    border-bottom-width: 0.5vw;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
 td a {
     text-decoration-line: none;
     color: yellow;
@@ -41,4 +63,132 @@ td a:hover {
 
 td a.visited {
     color: purple;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+td {
+    font-size: 2.75vw;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 0.75vw;
+    width: 50vw;
+    left: 25vw;
+}
+
+.score_tally {
+    font-size: 1.45vw;
+    left: 1vw;
+}
+
+.question_choice {
+    width: 25vw;
+    font-size: 1.45vw;
+    top: 65vh;
+}
+
+.question_select {
+    top: 90vh;
+}
+
+#p1_score_tally {
+    top: 2vh;
+}
+
+#p2_score_tally {
+    top: 9vh;
+}
+
+#welcome {
+    width: 40vw;
+    font-weight: bold;
+    font-size: 2.25vw;
+    left: 30vw;
+    top: 15vh;
+}
+
+#start_board_link {
+    width: 20vw;
+    left: 40vw;
+    top: 60vh;
+}
+
+#turn_heading {
+    top: -0.25vh;
+}
+
+#cat_heading {
+    top: 5vh;
+}
+
+#board_table {
+    width: 60vw;
+    left: 20vw;
+    top: 10vh;
+}
+
+#answer {
+    font-size: 3vw;
+    font-weight: bold;
+    width: 50vw;
+    left: 25vw;
+    top: 30vh;
+}
+
+#question_choice_1 {
+    left: 5vw;
+}
+
+#question_choice_2 {
+    left: 37.5vw;
+}
+
+#question_choice_3 {
+    left: 70vw;
+}
+
+#question_select_1 {
+    left: 13.5vw;
+}
+
+#question_select_2 {
+    left: 46vw;
+}
+
+#question_select_3 {
+    left: 79vw;
+}
+
+#result {
+    font-weight: bold;
+    font-size: 1vw;
+    width: 50vw;
+    left: 25vw;
+    top: 20vh;
+}
+
+#result_question {
+    font-size: 2vw;
+    width: 90vw;
+    left: 5vw;
+    top: 35vh;
+}
+
+#winnings {
+    font-size: 1vw;
+    font-weight: bold;
+    width: 50vw;
+    left: 25vw;
+    top: 50vh;
+}
+
+#return_button {
+    width: 40vw;
+    left: 30vw;
+    top: 70vh;
 }

@@ -14,17 +14,17 @@
     </head>
 
     <body>
-        <div><h1>Player #'s turn!</h1></div>
+        <div id="turn_heading" class="heading"><h1>Player #'s turn!</h1></div>
         
-        <div><h1>Category #: $#00</h1></div>
+        <div id="cat_heading" class="heading"><h1>Category #: $#00</h1></div>
         
-        <div><h1>Correct</h1></div>
+        <div id="result"><h1>Correct!</h1></div>
         
-        <div><p>Question 1: ********************</p></div>
+        <div id="result_question"><p>Question 1: Lorem ipsum dolor sit amet consectetur</p></div>
         
-        <div><h1>Player #'s winnings increase by<br>$#00!</h1></div>
+        <div id="winnings"><h1>Player #'s winnings increase by<br>$#00!</h1></div>
         
-        <div class="button_link"><a href="board.php">Return to Board</a></div>
+        <div id="return_button" class="button_link"><a href="board.php">Return to Board</a></div>
         
     </body>
     
