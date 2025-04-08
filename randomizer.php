@@ -1,6 +1,6 @@
 <?php
 
-define("TOTAL_CATEGORY_COUNT", 18688);
+define("TOTAL_CATEGORY_COUNT", 7756);
 define("QUESTIONS_USED", 5);
 define("CATEGORIES_USED", 5);
 /**
@@ -50,13 +50,15 @@ function getRandomCategory(string $file_name)
 
 function redirectToUrl(string $url, bool $shouldRedirect)
 {
-    if ($shouldRedirect) {
+    if ($shouldRedirect)
+    {
         header("Location: $url");
         exit;
     }
 }
 
-function resetCookies() {
+function resetCookies()
+{
     setcookie("CREATED_BOARD", "", time() - 3600);
     unset($_COOKIE['CREATED_BOARD']);
     setcookie("p1_winnings", "", time() - 3600);
