@@ -52,3 +52,14 @@ function redirectToUrl(string $url, bool $shouldRedirect) {
         exit;
     }
 }
+
+function resetCookies() {
+    setcookie("CREATED_BOARD", "", time() - 3600);
+    unset($_COOKIE['CREATED_BOARD']);
+    setcookie("p1_winnings", "", time() - 3600);
+    unset($_COOKIE['p1_winnings']);
+    setcookie("p2_winnings", "", time() - 3600);
+    unset($_COOKIE['p2_winnings']);
+    setcookie("current_turn", "", time() - 3600);
+    unset($_COOKIE['current_turn']);
+}
