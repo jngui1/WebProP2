@@ -55,11 +55,7 @@
         $_SESSION["p2_winnings"] = 0;
         
         $_SESSION["categories"] = getRandomCategories("filtered_csv.csv");
-        
-        
     }
-    
-    print_r($_SESSION["categories"]);
     
     /*$categories_row = "";
     

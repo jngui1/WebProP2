@@ -1,6 +1,6 @@
 <?php
 
-define("TOTAL_CATEGORY_COUNT", 7755);
+define("TOTAL_CATEGORY_COUNT", 7756);
 define("QUESTIONS_USED", 5);
 define("CATEGORIES_USED", 5);
 /**
