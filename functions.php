@@ -65,11 +65,14 @@ function create_board($boardQuestions)
     for ($i = 1; $i < 6; $i++) {
         $returnString .= "<tr>";
         
-        foreach ($boardQuestions as $categoryArray)
+        foreach ($boardQuestions as $index => $categoryArray)
         {
             foreach ($categoryArray as $category => $valueArray)
             {
-                $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\">$" . (string) ($i * 100) . "</a></td>";
+                $isVisited = isset($_SESSION["visited"][$index][$category][$i * 100]) && 
+                            $_SESSION["visited"][$index][$category][$i * 100];
+                $visitedClass = $isVisited ? " class=\"visited\"" : "";
+                $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\"$visitedClass>$" . (string) ($i * 100) . "</a></td>";
             }
         }
         
