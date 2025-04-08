@@ -1,28 +1,8 @@
 <?php
-    require("randomizer.php");
+    require("functions.php");
     
     session_start();
     
-    function is_visited()
-    {
-        foreach ($_SESSION["visited"] as $categoryArray)
-        {
-            if ($categoryArray[$_GET["cat"]])
-            {
-                if ($categoryArray[$_GET["cat"]][$_GET["val"]] == true)
-                {
-                    return true;
-                }
-                
-                else
-                {
-                    return false;
-                }
-            }
-        }
-        
-        return false;
-    }
     
     redirectToUrl("answer_old.php?cat=" . $_GET["cat"] . "&val=" . $_GET["val"], is_visited());
     

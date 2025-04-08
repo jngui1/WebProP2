@@ -1,50 +1,8 @@
 <?php
-    require("randomizer.php");
+    require("functions.php");
 
     session_start();
-
-    /*function create_board()
-    {
-        $readin = getRandomCategories("filtered_csv.csv");
-        return $readin;
-    }*/
     
-    function create_board($boardQuestions)
-    {
-        // TODO: CREATE COOKIE so the board is reset only when the button is pressed. This code should be made in index.php ans wherever else reset is created.
-        // Set the cookie to have the value of $boardQuestions, for access inside answer.php and other files
-        
-        // $boardQuestions = getRandomCategories("filtered_csv.csv");
-
-        // Creates the heading
-        $returnString = "<tr>";
-        foreach ($boardQuestions as $categoryArray)
-        {
-            foreach ($categoryArray as $category => $valueArray)
-            {
-                $returnString .= "<th> $category </th>";
-            }
-        }
-        
-        $returnString .= "</tr>";
-
-        // Creates the corresponding rows for the categories.
-        for ($i = 1; $i < 6; $i++) {
-            $returnString .= "<tr>";
-            
-            foreach ($boardQuestions as $categoryArray)
-            {
-                foreach ($categoryArray as $category => $valueArray)
-                {
-                    $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\">$" . (string) ($i * 100) . "</a></td>";
-                }
-            }
-            
-            $returnString .= "</tr>";
-        }
-        
-        return $returnString;
-    }
     
     if (!($_SESSION["current_turn"]))
     {

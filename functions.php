@@ -42,11 +42,42 @@ function getRandomCategory(string $file_name)
     return $categoryArray;
     //print_r($categoryArray);
 }
-// if (!isset($_COOKIE['CREATED_BOARD'])) {
-//     $readin = create_board();
-//     setcookie("CREATE_BOARD");
-// }
-//getRandomCategories();
+
+function create_board($boardQuestions)
+{
+    // Set the cookie to have the value of $boardQuestions, for access inside answer.php and other files
+    
+    // $boardQuestions = getRandomCategories("filtered_csv.csv");
+
+    // Creates the heading
+    $returnString = "<tr>";
+    foreach ($boardQuestions as $categoryArray)
+    {
+        foreach ($categoryArray as $category => $valueArray)
+        {
+            $returnString .= "<th> $category </th>";
+        }
+    }
+    
+    $returnString .= "</tr>";
+
+    // Creates the corresponding rows for the categories.
+    for ($i = 1; $i < 6; $i++) {
+        $returnString .= "<tr>";
+        
+        foreach ($boardQuestions as $categoryArray)
+        {
+            foreach ($categoryArray as $category => $valueArray)
+            {
+                $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\">$" . (string) ($i * 100) . "</a></td>";
+            }
+        }
+        
+        $returnString .= "</tr>";
+    }
+    
+    return $returnString;
+}
 
 function redirectToUrl(string $url, bool $shouldRedirect)
 {
@@ -64,3 +95,24 @@ function getRandomWrongAnswer(string $file_name = "filtered_csv.csv")
     $line = str_getcsv($readin[$random_line], separator:"|", escape:"\\");
     return $line[3];
 }
+
+function is_visited()
+    {
+        foreach ($_SESSION["visited"] as $categoryArray)
+        {
+            if ($categoryArray[$_GET["cat"]])
+            {
+                if ($categoryArray[$_GET["cat"]][$_GET["val"]] == true)
+                {
+                    return true;
+                }
+                
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        
+        return false;
+    }
