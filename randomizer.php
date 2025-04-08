@@ -5,7 +5,11 @@ define("QUESTIONS_USED", 5);
 define("CATEGORIES_USED", 5);
 /**
  * returns 5 categories. access the question and answer pairs through their values.
- * @return list [category1 => [valueNumber => [answer => x, question => x], valueNumber => [answer => x, question => x] ...],
+ * @return list [category1 => [100 => [answer => x, question => x], 
+ *                             200 => [answer => x, question => x],
+ *                             300 => [answer => x, question => x],
+ *                             400 => [answer => x, question => x],
+ *                             500 => [answer => x, question => x],
  *           category2 => [valueNumber => [answer => x, question => x], ... ] ...]
  */
 function getRandomCategories() {
@@ -13,7 +17,7 @@ function getRandomCategories() {
     for ($i=0; $i < CATEGORIES_USED; $i++) { 
         $categories[] = getRandomCategory();
     }
-    //print_r($categories);
+    
     return $categories;
 }
     
@@ -44,3 +48,11 @@ function getRandomCategory()
 //     setcookie("CREATE_BOARD");
 // }
 //getRandomCategories();
+
+function redirectToUrl(string $url, bool $shouldRedirect)
+{
+    if ($shouldRedirect) {
+        header("Location: $url");
+        exit;
+    }
+}

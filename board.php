@@ -3,10 +3,44 @@
 
     session_start();
 
-    function create_board()
+    /*function create_board()
     {
         $readin = getRandomCategories("filtered_csv.csv");
         return $readin;
+    }*/
+    
+    function create_board()
+    {
+        // TODO: CREATE COOKIE so the board is reset only when the button is pressed. This code should be made in index.php ans wherever else reset is created.
+        // Set the cookie to have the value of $boardQuestions, for access inside answer.php and other files
+        $boardQuestions = getRandomCategories("filtered_csv.csv");
+
+        // Creates the heading
+        $returnString = "<tr>";
+        foreach ($boardQuestions as $categoryArray)
+        {
+            foreach ($categoryArray as $category => $valueArray)
+            {
+                $returnString .= "<th> $category </th>";
+            }
+        }
+        
+        $returnString .= "</tr>";
+
+        // Creates the corresponding rows for the categories.
+        for ($i = 1; $i < 6; $i++) {
+            $returnString .= "<tr>";
+            
+            foreach ($boardQuestions as $categoryArray)
+            {
+                foreach ($categoryArray as $category => $valueArray)
+                {
+                    $returnString .= "<td> <a href=\"answer.php?cat=$category&val=", $i * 100, "\">", $i * 100, "</a></td>";
+                }
+            }
+            
+            $returnString .= "</tr>";
+        }
     }
     
     if (!($_SESSION["current_turn"]))
@@ -20,7 +54,7 @@
         $_SESSION["categories"] = create_board();
     }
     
-    $categories_row = "";
+    /*$categories_row = "";
     
     foreach ($_SESSION["categories"] as $index => $container)
     {
@@ -28,7 +62,7 @@
         {
             $categories_row .= "<th>$name</th>\n                    \n                    ";
         }
-    }
+    }*/
 ?>
 <!DOCTYPE html>
 
@@ -51,8 +85,9 @@
         
         <div id="board_table">
             <table>
-                <tr>
-                    <?= $categories_row ?>
+                <?= create_board(); ?>
+            
+                <!--<tr>
 </tr>
                 
                 <tr>
@@ -118,7 +153,7 @@
                     
                     <td><a href="answer.php?cat=5&val=500">$500</a></td>
                     
-                </tr>
+                </tr>--!>
             
             </table>
         
