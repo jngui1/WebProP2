@@ -1,10 +1,30 @@
 <?php
 require("randomizer.php");
-session_start();
 function create_board()
 {
-    $readin = getRandomCategories("filtered_csv.csv");
-    return $readin;
+    // TODO: CREATE COOKIE so the board is reset only when the button is pressed. This code should be made in index.php ans wherever else reset is created.
+    // Set the cookie to have the value of $boardQuestions, for access inside answer.php and other files
+    $boardQuestions = getRandomCategories("filtered_csv.csv");
+
+    // Creates the heading
+    echo "<tr>";
+    foreach ($boardQuestions as $categoryArray) {
+        foreach ($categoryArray as $category => $valueArray) {
+            echo "<th> $category </th>";
+        }
+    }
+    echo "</tr>";
+
+    // Creates the corresponding rows for the categories.
+    for ($i = 1; $i < 6; $i++) {
+        echo "<tr>";
+        foreach ($boardQuestions as $categoryArray) {
+            foreach ($categoryArray as $category => $valueArray) {
+                echo "<td> <a href=\"answer.php?cat=$category&val=", $i * 100, "\">", $i * 100, "</a></td>";
+            }
+        }
+        echo "</tr>";
+    }
 }
 
 ?>
@@ -27,93 +47,16 @@ function create_board()
     </div>
 
     <div id="p1_score_tally" class="score_tally">
-        <p>P2 Winnings: $0</p>
+        <p>P1 Winnings: $0</p>
     </div>
 
-    <div class="score_tally">
-        
+    <div id="p2_score_tally" class="score_tally">
+        <p>P2 Winnings: $0</p>
     </div>
     <div id="board_table">
         <table>
-            <tr>
-                <th>Category 1</th>
 
-                <th>Category 2</th>
-
-                <th>Category 3</th>
-
-                <th>Category 4</th>
-
-                <th>Category 5</th>
-
-            </tr>
-
-            <tr>
-                <td><a href="answer.php?cat=1&val=100">$100</a></td>
-
-                <td><a href="answer.php?cat=1&val=200">$200</a></td>
-
-                <td><a href="answer.php?cat=1&val=300">$300</a></td>
-
-                <td><a href="answer.php?cat=1&val=400">$400</a></td>
-
-                <td><a href="answer.php?cat=1&val=500">$500</a></td>
-
-            </tr>
-
-            <tr>
-                <td><a href="answer.php?cat=2&val=100">$100</a></td>
-
-                <td><a href="answer.php?cat=2&val=200">$200</a></td>
-
-                <td><a href="answer.php?cat=2&val=300">$300</a></td>
-
-                <td><a href="answer.php?cat=2&val=400">$400</a></td>
-
-                <td><a href="answer.php?cat=2&val=500">$500</a></td>
-
-            </tr>
-
-            <tr>
-                <td><a href="answer.php?cat=3&val=100">$100</a></td>
-
-                <td><a href="answer.php?cat=3&val=200">$200</a></td>
-
-                <td><a href="answer.php?cat=3&val=300">$300</a></td>
-
-                <td><a href="answer.php?cat=3&val=400">$400</a></td>
-
-                <td><a href="answer.php?cat=3&val=500">$500</a></td>
-
-            </tr>
-
-            <tr>
-                <td><a href="answer.php?cat=4&val=100">$100</a></td>
-
-                <td><a href="answer.php?cat=4&val=200">$200</a></td>
-
-                <td><a href="answer.php?cat=4&val=300">$300</a></td>
-
-                <td><a href="answer.php?cat=4&val=400">$400</a></td>
-
-                <td><a href="answer.php?cat=4&val=500">$500</a></td>
-
-            </tr>
-
-            <tr>
-            <tr>
-                <td><a href="answer.php?cat=5&val=100">$100</a></td>
-
-                <td><a href="answer.php?cat=5&val=200">$200</a></td>
-
-                <td><a href="answer.php?cat=5&val=300">$300</a></td>
-
-                <td><a href="answer.php?cat=5&val=400">$400</a></td>
-
-                <td><a href="answer.php?cat=5&val=500">$500</a></td>
-
-            </tr>
-
+            <?php create_board() ?>
         </table>
 
     </div>

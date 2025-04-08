@@ -1,11 +1,15 @@
 <?php
 
-define("TOTAL_CATEGORY_COUNT", 18688);
+define("TOTAL_CATEGORY_COUNT", 7755);
 define("QUESTIONS_USED", 5);
 define("CATEGORIES_USED", 5);
 /**
  * returns 5 categories. access the question and answer pairs through their values.
- * @return list [category1 => [valueNumber => [answer => x, question => x], valueNumber => [answer => x, question => x] ...],
+ * @return list [category1 => [100 => [answer => x, question => x], 
+ *                             200 => [answer => x, question => x],
+ *                             300 => [answer => x, question => x],
+ *                             400 => [answer => x, question => x],
+ *                             500 => [answer => x, question => x],
  *           category2 => [valueNumber => [answer => x, question => x], ... ] ...]
  */
 function getRandomCategories() {
@@ -13,7 +17,6 @@ function getRandomCategories() {
     for ($i=0; $i < CATEGORIES_USED; $i++) { 
         $categories[] = getRandomCategory();
     }
-    print_r($categories);
     return $categories;
 }
     
@@ -35,10 +38,16 @@ function getRandomCategory()
         $line = str_getcsv($readin[$i], separator:"|", escape:"\\");
         $categoryArray[$category][$line[0]] = array("Answer" => $line[2], "Question" => $line[3]);
     }
-    print_r($categoryArray);
+    return $categoryArray;
 }
 // if (!isset($_COOKIE['CREATED_BOARD'])) {
 //     $readin = create_board();
 //     setcookie("CREATE_BOARD");
 // }
-getRandomCategories();
+// $boardList = getRandomCategories();
+// print_r($boardList);
+// foreach ($boardList as $categoryArray) {
+//     foreach ($categoryArray as $category => $valueArray) {
+//         echo $category;
+//     }
+// }
