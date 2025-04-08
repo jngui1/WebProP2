@@ -42,3 +42,10 @@ function getRandomCategory()
 //     setcookie("CREATE_BOARD");
 // }
 //getRandomCategories();
+
+function redirectToUrl(string $url, bool $shouldRedirect) {
+    if ($shouldRedirect) {
+        header("Location: $url");
+        exit;
+    }
+}
