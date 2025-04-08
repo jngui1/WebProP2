@@ -3,7 +3,6 @@
 
     session_start();
     
-    
     if (!($_SESSION["current_turn"]))
     {
         $_SESSION["current_turn"] = 1;
@@ -49,12 +48,7 @@
         }
     }
     
-    if ($allVisited)
-    {
-        header("Location: board_done.php");
-        exit;
-    }
-
+    redirectToUrl("board_done.php", $allVisited);
 ?>
 <!DOCTYPE html>
 
