@@ -32,9 +32,9 @@
         }
     }
     
-    print_r($_SESSION["categories"]);
+    //print_r($_SESSION["categories"]);
     
-    print_r($_SESSION["visited"]);
+    //print_r($_SESSION["visited"]);
     
     /*$categories_row = "";
     
