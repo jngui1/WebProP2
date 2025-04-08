@@ -108,7 +108,6 @@
                 </tr>
                 
                 <tr>
-                    <tr>
                     <td><a href="answer.php?cat=5&val=100">$100</a></td>
                     
                     <td><a href="answer.php?cat=5&val=200">$200</a></td>
