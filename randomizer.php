@@ -1,6 +1,6 @@
 <?php
 
-define("TOTAL_CATEGORY_COUNT", 7755);
+define("TOTAL_CATEGORY_COUNT", 18688);
 define("QUESTIONS_USED", 5);
 define("CATEGORIES_USED", 5);
 /**
@@ -14,12 +14,13 @@ define("CATEGORIES_USED", 5);
  */
 function getRandomCategories() {
     $categories = [];
-    for ($i = 0; $i < CATEGORIES_USED; $i++) {
+    for ($i=0; $i < CATEGORIES_USED; $i++) { 
         $categories[] = getRandomCategory();
     }
+    
     return $categories;
 }
-
+    
 /** 
  * @return [category => [valueNumber => [answer => x, question => x] times 5]]
  * thats 1 category, with CATEGORIES_USED amount of value arrays containing the corresponding answer and question
@@ -32,13 +33,15 @@ function getRandomCategory()
     // $fields = str_getcsv($readin[0], separator:"|", escape:"\\");
 
     $random_line = (rand(0, TOTAL_CATEGORY_COUNT) * 5) + 1;
-    $category = str_getcsv($readin[$random_line], separator: "|", escape: "\\")[1];
+    $category = str_getcsv($readin[$random_line], separator:"|", escape:"\\")[1];
     $categoryArray[$category] = array();
-    for ($i = $random_line; $i < 5 + $random_line; $i++) {
-        $line = str_getcsv($readin[$i], separator: "|", escape: "\\");
+    for ($i=$random_line; $i < 5 + $random_line; $i++) { 
+        $line = str_getcsv($readin[$i], separator:"|", escape:"\\");
         $categoryArray[$category][$line[0]] = array("Answer" => $line[2], "Question" => $line[3]);
     }
+    
     return $categoryArray;
+    //print_r($categoryArray);
 }
 // if (!isset($_COOKIE['CREATED_BOARD'])) {
 //     $readin = create_board();
@@ -46,7 +49,8 @@ function getRandomCategory()
 // }
 //getRandomCategories();
 
-function redirectToUrl(string $url, bool $shouldRedirect) {
+function redirectToUrl(string $url, bool $shouldRedirect)
+{
     if ($shouldRedirect) {
         header("Location: $url");
         exit;
