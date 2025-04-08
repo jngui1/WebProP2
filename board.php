@@ -32,19 +32,29 @@
         }
     }
     
-    //print_r($_SESSION["categories"]);
-    
-    //print_r($_SESSION["visited"]);
-    
-    /*$categories_row = "";
-    
-    foreach ($_SESSION["categories"] as $index => $container)
+    // check if all values have been visited
+    $allVisited = true;
+    foreach ($_SESSION["visited"] as $categoryArray)
     {
-        foreach ($container as $name => $data)
+        foreach ($categoryArray as $category => $valueArray)
         {
-            $categories_row .= "<th>$name</th>\n                    \n                    ";
+            foreach ($valueArray as $value => $visited)
+            {
+                if (!$visited)
+                {
+                    $allVisited = false;
+                    break 3;
+                }
+            }
         }
-    }*/
+    }
+    
+    if ($allVisited)
+    {
+        header("Location: board_done.php");
+        exit;
+    }
+
 ?>
 <!DOCTYPE html>
 
