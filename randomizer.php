@@ -57,14 +57,10 @@ function redirectToUrl(string $url, bool $shouldRedirect)
     }
 }
 
-function resetCookies()
+function getRandomWrongAnswer(string $file_name = "filtered_csv.csv")
 {
-    setcookie("CREATED_BOARD", "", time() - 3600);
-    unset($_COOKIE['CREATED_BOARD']);
-    setcookie("p1_winnings", "", time() - 3600);
-    unset($_COOKIE['p1_winnings']);
-    setcookie("p2_winnings", "", time() - 3600);
-    unset($_COOKIE['p2_winnings']);
-    setcookie("current_turn", "", time() - 3600);
-    unset($_COOKIE['current_turn']);
+    $readin = file($file_name);
+    $random_line = (rand(0, TOTAL_CATEGORY_COUNT * 5));
+    $line = str_getcsv($readin[$random_line], separator:"|", escape:"\\");
+    return $line[2];
 }
