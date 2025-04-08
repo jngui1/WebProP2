@@ -1,5 +1,7 @@
 <?php
 require("randomizer.php");
+
+
 function create_board()
 {
     // TODO: CREATE COOKIE so the board is reset only when the button is pressed. This code should be made in index.php ans wherever else reset is created.
@@ -27,6 +29,13 @@ function create_board()
     }
 }
 
+if (!($_SESSION["current_turn"])) {
+    $_SESSION["current_turn"] = 1;
+
+    $_SESSION["p1_winnings"] = 0;
+
+    $_SESSION["p2_winnings"] = 0;
+}
 ?>
 <!DOCTYPE html>
 
@@ -47,11 +56,11 @@ function create_board()
     </div>
 
     <div id="p1_score_tally" class="score_tally">
-        <p>P1 Winnings: $0</p>
+        <p>P1 Winnings: $<?= $_SESSION["p1_winnings"] ?></p>
     </div>
 
     <div id="p2_score_tally" class="score_tally">
-        <p>P2 Winnings: $0</p>
+        <p>P2 Winnings: $<?= $_SESSION["p2_winnings"] ?></p>
     </div>
     <div id="board_table">
         <table>
