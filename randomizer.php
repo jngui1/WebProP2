@@ -12,10 +12,10 @@ define("CATEGORIES_USED", 5);
  *                             500 => [answer => x, question => x],
  *           category2 => [valueNumber => [answer => x, question => x], ... ] ...]
  */
-function getRandomCategories() {
+function getRandomCategories(string $file_name = "filtered_csv.csv") {
     $categories = [];
     for ($i=0; $i < CATEGORIES_USED; $i++) { 
-        $categories[] = getRandomCategory();
+        $categories[] = getRandomCategory($file_name);
     }
     
     return $categories;
@@ -26,9 +26,8 @@ function getRandomCategories() {
  * thats 1 category, with CATEGORIES_USED amount of value arrays containing the corresponding answer and question
  * enough to fill a single column.
  */
-function getRandomCategory()
+function getRandomCategory(string $file_name)
 {
-    $file_name = "filtered_csv.csv";
     $readin = file($file_name);
     // $fields = str_getcsv($readin[0], separator:"|", escape:"\\");
 
