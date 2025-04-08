@@ -1,47 +1,50 @@
 <?php
     session_start();
     
-    foreach ($_SESSION["visited"] as &$categoryArray)
+    $categoryIndex = -1;
+    foreach ($_SESSION["visited"] as $index => $categoryArray)
     {
         if ($categoryArray[$_GET["cat"]])
         {
-            $categoryArray[$_GET["cat"]][$_GET["val"]] = true;
-            
-            // check if the selected question is correct
-            $selectedQuestionIndex = $_GET["question"];
-            $isCorrect = false;
-            $correctQuestion = "";
-            
-            foreach ($_SESSION["categories"] as $categoryArray)
-            {
-                if ($categoryArray[$_GET["cat"]])
-                {
-                    $correctQuestion = $categoryArray[$_GET["cat"]][$_GET["val"]]["Question"];
-                    break;
-                }
-            }
-            
-            if ($_SESSION["questions"][$selectedQuestionIndex] === $correctQuestion)
-            {
-                $isCorrect = true;
-                // update player winnings
-                if ($_SESSION["current_turn"] == 1)
-                {
-                    $_SESSION["p1_winnings"] += $_GET["val"];
-                }
-                else
-                {
-                    $_SESSION["p2_winnings"] += $_GET["val"];
-                }
-            }
-            
-            // change turns
-            $_SESSION["current_turn"] = ($_SESSION["current_turn"] == 1) ? 2 : 1;
-            
-            //print_r($_SESSION["visited"]);
-            
+            $categoryIndex = $index;
             break;
         }
+    }
+    
+    if ($categoryIndex !== -1)
+    {
+        $_SESSION["visited"][$categoryIndex][$_GET["cat"]][$_GET["val"]] = true;
+        
+        // check if the selected question is correct
+        $selectedQuestionIndex = $_GET["question"];
+        $isCorrect = false;
+        $correctQuestion = "";
+        
+        foreach ($_SESSION["categories"] as $categoryArray)
+        {
+            if ($categoryArray[$_GET["cat"]])
+            {
+                $correctQuestion = $categoryArray[$_GET["cat"]][$_GET["val"]]["Question"];
+                break;
+            }
+        }
+        
+        if ($_SESSION["questions"][$selectedQuestionIndex] === $correctQuestion)
+        {
+            $isCorrect = true;
+            // update player winnings
+            if ($_SESSION["current_turn"] == 1)
+            {
+                $_SESSION["p1_winnings"] += $_GET["val"];
+            }
+            else
+            {
+                $_SESSION["p2_winnings"] += $_GET["val"];
+            }
+        }
+        
+        // change turns
+        $_SESSION["current_turn"] = ($_SESSION["current_turn"] == 1) ? 2 : 1;
     }
     
     unset($_SESSION["questions"]);
