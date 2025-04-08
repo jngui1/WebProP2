@@ -1,5 +1,19 @@
 <?php
     session_start();
+    
+    foreach ($_SESSION["visited"] as &$categoryArray)
+    {
+        if ($categoryArray[$_GET["cat"]])
+        {
+            $categoryArray[$_GET["cat"]][$_GET["val"]] = true;
+            
+            print_r($_SESSION["visited"]);
+            
+            break;
+        }
+    }
+    
+    unset($_SESSION["questions"]);
 ?>
 <!DOCTYPE html>
 

@@ -62,5 +62,5 @@ function getRandomWrongAnswer(string $file_name = "filtered_csv.csv")
     $readin = file($file_name);
     $random_line = (rand(0, TOTAL_CATEGORY_COUNT * 5));
     $line = str_getcsv($readin[$random_line], separator:"|", escape:"\\");
-    return $line[2];
+    return $line[3];
 }

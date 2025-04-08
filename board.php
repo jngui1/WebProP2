@@ -36,7 +36,7 @@
             {
                 foreach ($categoryArray as $category => $valueArray)
                 {
-                    $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\">" . (string) ($i * 100) . "</a></td>";
+                    $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\">$" . (string) ($i * 100) . "</a></td>";
                 }
             }
             
@@ -55,7 +55,28 @@
         $_SESSION["p2_winnings"] = 0;
         
         $_SESSION["categories"] = getRandomCategories("filtered_csv.csv");
+        
+        $_SESSION["visited"] = array();
+        
+        foreach($_SESSION["categories"] as $categoryArray)
+        {
+            $_SESSION["visited"][] = array();
+            
+            foreach ($categoryArray as $category => $valueArray)
+            {
+                $_SESSION["visited"][count($_SESSION["visited"])-1][$category] = array();
+                
+                foreach($valueArray as $values => $answerArray)
+                {
+                    $_SESSION["visited"][count($_SESSION["visited"])-1][$category][$values] = false;
+                }
+            }
+        }
     }
+    
+    print_r($_SESSION["categories"]);
+    
+    print_r($_SESSION["visited"]);
     
     /*$categories_row = "";
     
