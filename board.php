@@ -9,11 +9,12 @@
         return $readin;
     }*/
     
-    function create_board()
+    function create_board($boardQuestions)
     {
         // TODO: CREATE COOKIE so the board is reset only when the button is pressed. This code should be made in index.php ans wherever else reset is created.
         // Set the cookie to have the value of $boardQuestions, for access inside answer.php and other files
-        $boardQuestions = getRandomCategories("filtered_csv.csv");
+        
+        // $boardQuestions = getRandomCategories("filtered_csv.csv");
 
         // Creates the heading
         $returnString = "<tr>";
@@ -35,12 +36,14 @@
             {
                 foreach ($categoryArray as $category => $valueArray)
                 {
-                    $returnString .= "<td> <a href=\"answer.php?cat=$category&val=", $i * 100, "\">", $i * 100, "</a></td>";
+                    $returnString .= "<td> <a href=\"answer.php?cat=$category&val=" . (string) ($i * 100) . "\">" . (string) ($i * 100) . "</a></td>";
                 }
             }
             
             $returnString .= "</tr>";
         }
+        
+        return $returnString;
     }
     
     if (!($_SESSION["current_turn"]))
@@ -51,8 +54,12 @@
         
         $_SESSION["p2_winnings"] = 0;
         
-        $_SESSION["categories"] = create_board();
+        $_SESSION["categories"] = getRandomCategories("filtered_csv.csv");
+        
+        
     }
+    
+    print_r($_SESSION["categories"]);
     
     /*$categories_row = "";
     
@@ -85,7 +92,7 @@
         
         <div id="board_table">
             <table>
-                <?= create_board(); ?>
+                <?= create_board($_SESSION["categories"]); ?>
             
                 <!--<tr>
 </tr>

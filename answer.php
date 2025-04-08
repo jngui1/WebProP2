@@ -1,5 +1,7 @@
 <?php
     session_start();
+    
+    
 ?>
 <!DOCTYPE html>
 
@@ -14,7 +16,7 @@
     </head>
 
     <body>
-        <div id="turn_heading" class="heading"><h1>Player #'s turn!</h1></div>
+        <div id="turn_heading" class="heading"><h1>Player <?= $_SESSION["current_turn"] ?>'s turn!</h1></div>
         
         <div id="cat_heading" class="heading"><h1>Category #: $#00</h1></div>
         
