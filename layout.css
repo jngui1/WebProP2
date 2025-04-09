@@ -248,7 +248,19 @@ td {
     animation-fill-mode: both;
 }
 
-#answer, #winner {
+#answer {
+    font-size: 3vw;
+    font-weight: bold;
+    width: 100vw;
+    left: 0;
+    top: 20vh;
+    animation-name: top_fade;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+#winner {
     font-size: 3vw;
     font-weight: bold;
     width: 50vw;
